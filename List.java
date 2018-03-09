@@ -7,7 +7,7 @@ public class List{
     //method to insert at front
     public void insertAtFront (Object newData) {
         //if list is empty
-        if (firstNode == Null) 
+        if (firstNode == null) 
             firstNode = lastNode = new ListNode(newData, null);
         else{
             ListNode newFirstNode = new ListNode(newData, firstNode);
@@ -38,7 +38,7 @@ public class List{
         return removedData;
     }
 
-    public Object removedFromBack(){
+    public Object removeFromBack(){
         if (firstNode == null)
             return null;
 
@@ -50,7 +50,7 @@ public class List{
             ListNode current = firstNode;
             
             while (current.getNext() != lastNode)
-                current = current.getNext;
+                current = current.getNext();
             lastNode = current;
             current.setNext(null);
         }
@@ -81,7 +81,7 @@ public class List{
         name = listName;
     }
 
-    public list() {
+    public List() {
         this("List");
     }
 }
