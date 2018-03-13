@@ -50,19 +50,27 @@ public abstract class OrderedList extends List {
 
     public boolean remove(Object remData) {
         ListNode conductor = firstNode;
+        ListNode previous = conductor;
+
+        int result = compare(remData, firstNode.getData());
+
+        if (result == 0) {
+            firstNode = firstNode.getNext();
+            return true;
+        }
 
         while(conductor != null){
 
-            int result = compare(newData, conductor.getData());
+            result = compare(remData, conductor.getData());
         
             if (result ==  0){
-                ListNode newNode = new ListNode(newData, conductor.getNext());
-                conductor.setNext(newNode);
-                return;
+                previous.setNext(conductor.getNext());
+                return true;
             }
 
+            previous = conductor;
             conductor = conductor.getNext();
         }
-        return true;    
+        return false;    
     }
 }
