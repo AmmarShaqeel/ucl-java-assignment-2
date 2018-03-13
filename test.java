@@ -1,25 +1,17 @@
-public class ListTest {
+public class Test {
     public static void main (String args[]) {
 
             List list = new List();
-            ListNode conductor = new ListNode(null,null);
 
-            list.insertAtFront(Integer.valueOf(-1));
-            list.insertAtBack(Integer.valueOf(2));
-            list.insertAtBack(Integer.valueOf(5));
-            list.insertAtBack(Integer.valueOf(9));
-
-            conductor = list.getFirst();
-            Object test = list.getFirst().getData();
-            System.out.println("first node is: " + conductor.getData());
+            list.insertAtFront(new Integer(-1));
+            list.insertAtBack(new Integer(2));
+            list.insertAtBack(new Integer(5));
+            list.insertAtBack(new Integer(9));
 
             System.out.println(list);
 
             Object removedData = list.removeFromFront();
             System.out.println("removed data is: " + removedData);
-
-            conductor = list.getFirst();
-            System.out.println("first node is: " + conductor.getData());
 
             removedData = list.removeFromBack();
             // we know removedData is of class Integer so
