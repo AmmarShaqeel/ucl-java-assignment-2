@@ -1,7 +1,7 @@
 public class ListTest {
     public static void main (String args[]) {
 
-            List list = new List();
+            List list = new List("test");
             ListNode conductor = new ListNode(null,null);
 
             list.insertAtFront(Integer.valueOf(-1));

@@ -79,6 +79,7 @@ public class List{
     public List (String listName) {
         firstNode = lastNode = null;
         name = listName;
+        System.out.println("list name is:  " + name);
     }
 
     public List() {

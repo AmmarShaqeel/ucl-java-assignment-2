@@ -7,4 +7,13 @@ public class IntegerOrderedList extends OrderedList {
         return result;
     }
 
+    //contructors
+    public List (String listName) {
+        firstNode = lastNode = null;
+        name = listName;
+    }
+
+    public List() {
+        this("Integer Ordered List");
+    }
 }

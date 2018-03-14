@@ -12,40 +12,45 @@ public abstract class OrderedList extends List {
 
     protected abstract int compare(Object obj1, Object obj2); 
 
-    public void insert(Object newData) {
-
+    public boolean insert(Object newData) {
         ListNode conductor = firstNode;
-
-        try{
-
-            int result = compare(newData, conductor.getData());
-
-            if (result < 0){
-                ListNode newNode = new ListNode(newData, conductor);
-                firstNode = newNode;
-                return;
-            }
-
-            while(conductor.getNext() != null){
-
-                result = compare(newData, conductor.getNext().getData());
-            
-                if (result < 0){
-                    ListNode newNode = new ListNode(newData, conductor.getNext());
-                    conductor.setNext(newNode);
-                    return;
-                }
-
-                conductor = conductor.getNext();
-            }
-            
-            ListNode newNode = new ListNode(newData, null);
-            conductor.setNext(newNode); 
-        } catch (NullPointerException e) {
+        ListNode previous = null;
+        
+        if (firstNode == null){
             ListNode newNode = new ListNode(newData, null);
             firstNode = newNode;
-            return;
+            return true;
         }
+
+        int result = compare(newData, conductor.getData());
+
+        while(conductor != null && result > 0){
+            result = compare(newData, conductor.getData());
+            System.out.println("result: " + result);
+
+            if (result == 0) {
+                System.out.println("TK: duplicate");
+                return false;
+            }
+
+            previous = conductor;
+            conductor = conductor.getNext();
+        }
+
+        if (previous == null){
+            System.out.println("TK: prev = null");
+            ListNode newNode = new ListNode(newData, null);
+            firstNode = newNode;
+            firstNode.setNext(conductor);
+            return true;
+        }
+
+        else {
+            ListNode newNode = new ListNode(newData, conductor);
+            previous.setNext(newNode);
+            return true;
+        }
+
     }
 
     public boolean remove(Object remData) {

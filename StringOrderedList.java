@@ -7,4 +7,13 @@ public class StringOrderedList extends OrderedList {
         return result;
     }
 
+    //contructors
+    public List (String listName) {
+        firstNode = lastNode = null;
+        name = listName;
+    }
+
+    public List() {
+        this("String Ordered List");
+    }
 }
