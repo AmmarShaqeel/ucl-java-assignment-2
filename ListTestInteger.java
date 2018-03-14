@@ -1,43 +1,84 @@
+ import java.util.*;
+
 public class ListTestInteger {
+    public static void Menu(OrderedList list) {
+        int flag = 1;
+
+        while (flag == 1) {
+            Scanner input =  new Scanner(System.in);
+            int choice  = 0;
+            System.out.println("1.Add Item 2.Delete Item 3. Print All 0.Go Back");
+            choice = input.nextInt();
+
+            switch(choice) {
+                case 1:
+                    System.out.println("input your data");
+                    input.nextLine();
+                    Object newData = input.nextLine();
+                    list.insert(newData);
+                    break;
+
+                case 2:
+                    System.out.println("input the data you want removed");
+                    input.nextLine();
+                    Object remData = input.nextLine();
+                    list.remove(remData);
+                    break;
+
+                case 3:
+                    System.out.println(list);
+                    break;
+
+                case 0:
+                    flag = 0;
+                    break;
+            }
+        }
+    }
+        
     public static void main (String args[]) {
 
-            IntegerOrderedList list = new IntegerOrderedList("test");
+        int flag = 1;
+        IntegerOrderedList integerList = new IntegerOrderedList();
+        StringOrderedList stringList = new StringOrderedList();
 
-            System.out.println("inserting -1");
-            list.insert(Integer.valueOf(-1));
-            System.out.println(list);
+        while (flag == 1) {
+            try {
+                Scanner input =  new Scanner(System.in);
+                int choice  = 0;
+                System.out.println("1.Integer List 2. String List 0.Exit");
 
-            System.out.println("inserting -2");
-            list.insert(Integer.valueOf(-2));
-            System.out.println(list);
+                choice = input.nextInt();
 
-            System.out.println("inserting 2");
-            list.insert(Integer.valueOf(2));
-            System.out.println(list);
+                switch(choice) {
+                    case 1:
+                        Menu(integerList);
+                        break;
 
-            System.out.println("inserting 5");
-            list.insert(Integer.valueOf(5));
-            System.out.println(list);
+                    case 2:
+                        Menu(stringList);
+                        break;
 
-            System.out.println("inserting 9");
-            list.insert(Integer.valueOf(9));
-            System.out.println(list);
+                    case 0:
+                        flag = 0;
+                        break;
+                }
+            }
+             catch (ArithmeticException e) {
+                 System.err.printf("Exception: %s \n", e);
+                 System.err.printf("Numbers should be positive integers different than zero   \n");
+             }
 
+             catch (NumberFormatException e) {
+                 System.err.printf("Exception: %s \n", e);
+                 System.err.printf("integers please \n");
+             }
 
-            System.out.println(list);
-
-            Object removedData = list.removeFromFront();
-            System.out.println("removed data is: " + removedData);
-
-            System.out.println(list);
-            System.out.println("removing 7");
-            list.remove(7);
-            System.out.println(list);
-            System.out.println("removing -1");
-            list.remove(-1);
-            System.out.println(list);
-            System.out.println("removing 9");
-            list.remove(9);
-            System.out.println(list);
+             catch (InputMismatchException e) {
+                 System.err.printf("Exception: %s \n", e);
+                 System.err.printf("Inputs should be integers \n");
+             }
         }
+    }
 }
+

@@ -8,12 +8,12 @@ public class StringOrderedList extends OrderedList {
     }
 
     //contructors
-    public List (String listName) {
+    public StringOrderedList (String listName) {
         firstNode = lastNode = null;
         name = listName;
     }
 
-    public List() {
+    public StringOrderedList() {
         this("String Ordered List");
     }
 }

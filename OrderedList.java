@@ -26,7 +26,7 @@ public abstract class OrderedList extends List {
 
         while(conductor != null && result > 0){
             result = compare(newData, conductor.getData());
-            System.out.println("result: " + result);
+            System.out.println("TK: result: " + result);
 
             if (result == 0) {
                 System.out.println("TK: duplicate");
