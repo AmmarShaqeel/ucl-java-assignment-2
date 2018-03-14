@@ -20,7 +20,7 @@ public abstract class OrderedList extends List {
 
             int result = compare(newData, conductor.getData());
 
-            if (result == 1){
+            if (result < 0){
                 ListNode newNode = new ListNode(newData, conductor);
                 firstNode = newNode;
                 return;
@@ -30,7 +30,7 @@ public abstract class OrderedList extends List {
 
                 result = compare(newData, conductor.getNext().getData());
             
-                if (result == 1){
+                if (result < 0){
                     ListNode newNode = new ListNode(newData, conductor.getNext());
                     conductor.setNext(newNode);
                     return;
