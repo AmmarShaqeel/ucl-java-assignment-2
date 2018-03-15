@@ -39,11 +39,6 @@ public class Menu {
                         break;
                 }
             }
-             catch (ArithmeticException e) {
-                 System.err.printf("Exception: %s \n", e);
-                 System.err.printf("Numbers should be positive integers different than zero   \n");
-             }
-
              catch (NumberFormatException e) {
                  System.err.printf("Exception: %s \n", e);
                  System.err.printf("integers please \n");
@@ -88,11 +83,6 @@ public class Menu {
                         break;
                 }
             }
-             catch (ArithmeticException e) {
-                 System.err.printf("Exception: %s \n", e);
-                 System.err.printf("Numbers should be positive integers different than zero   \n");
-             }
-
              catch (NumberFormatException e) {
                  System.err.printf("Exception: %s \n", e);
                  System.err.printf("integers please \n");
