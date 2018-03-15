@@ -16,38 +16,23 @@ public abstract class OrderedList extends List {
         ListNode conductor = firstNode;
         ListNode previous = null;
         
-        if (firstNode == null){
-            ListNode newNode = new ListNode(newData, null);
-            firstNode = newNode;
-            return true;
-        }
 
-        int result = compare(newData, conductor.getData());
-
-        while(conductor != null && result >= 0){
-
-            result = compare(newData, conductor.getData());
-
-            if (result == 0) {
-                System.out.println("TK: duplicate");
-                return false;
-            }
-            else if (result <0) {
-                break;
-            }
-            else{
+        while(conductor != null && compare(newData, conductor.getData())>= 0){
                 previous = conductor;
                 conductor = conductor.getNext();
-            }
         }
 
         if (previous == null){
             System.out.println("TK: prev = null");
-            ListNode newNode = new ListNode(newData, null);
-            firstNode = newNode;
-            firstNode.setNext(conductor);
+            firstNode  = new ListNode(newData, conductor);
             return true;
         }
+        else if (conductor != null &&  compare(newData, conductor.getData()) == 0)
+        {
+            System.out.println("TK: duplicate");
+            return false;
+        }
+
 
         else {
             ListNode newNode = new ListNode(newData, conductor);
