@@ -24,17 +24,21 @@ public abstract class OrderedList extends List {
 
         int result = compare(newData, conductor.getData());
 
-        while(conductor != null && result > 0){
+        while(conductor != null && result >= 0){
+
             result = compare(newData, conductor.getData());
-            System.out.println("TK: result: " + result);
 
             if (result == 0) {
                 System.out.println("TK: duplicate");
                 return false;
             }
-
-            previous = conductor;
-            conductor = conductor.getNext();
+            else if (result <0) {
+                break;
+            }
+            else{
+                previous = conductor;
+                conductor = conductor.getNext();
+            }
         }
 
         if (previous == null){
@@ -56,6 +60,13 @@ public abstract class OrderedList extends List {
     public boolean remove(Object remData) {
         ListNode conductor = firstNode;
         ListNode previous = conductor;
+
+        if (firstNode == null)
+        {
+            System.out.println("List is empty");
+            return false;
+        }
+
 
         int result = compare(remData, firstNode.getData());
 

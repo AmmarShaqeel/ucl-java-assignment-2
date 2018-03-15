@@ -32,6 +32,10 @@ public class Menu {
                 case 0:
                     flag = 0;
                     break;
+
+                default:
+                    System.out.println("Not an option, please try again");
+                    break;
             }
         }
     }
@@ -61,6 +65,10 @@ public class Menu {
 
                     case 0:
                         flag = 0;
+                        break;
+
+                    default:
+                        System.out.println("Not an option, please try again");
                         break;
                 }
             }
