@@ -75,7 +75,6 @@ public abstract class OrderedList extends List {
             previous = conductor;
             conductor = conductor.getNext();
         }
-        System.out.println("TK: not found");
         return false;    
     }
 }
