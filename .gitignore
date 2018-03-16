@@ -18,3 +18,5 @@
 *.tar.gz
 *.rar
 
+# vim swap files
+*~
