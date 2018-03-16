@@ -42,7 +42,6 @@ public abstract class OrderedList extends List {
             //otherwise inserts element between previous and next
             else {
                 ListNode newNode = new ListNode(newData, conductor);
-                System.out.println("TK: conductor = " + conductor.getData());
                 previous.setNext(newNode);
                 return true;
             }
