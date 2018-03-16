@@ -18,31 +18,34 @@ public abstract class OrderedList extends List {
         ListNode conductor = firstNode;
         ListNode previous = null;
 
-        while(conductor != null && compare(newData, conductor.getData())>= 0){
+        while(conductor != null && compare(newData, conductor.getData())> 0){
                 previous = conductor;
                 conductor = conductor.getNext();
         }
 
-        //if previous equals null, then the new element will be the first node
-        if (previous == null){
-            System.out.println("TK: prev = null");
-            firstNode  = new ListNode(newData, conductor);
-            return true;
-        }
-
         //if duplicate returns false, conductor null check is to prevent the
         //null pointer exception
-        else if (conductor != null &&  compare(newData, conductor.getData()) == 0)
+        if (conductor != null &&  compare(newData, conductor.getData()) == 0)
         {
             System.out.println("TK: duplicate");
             return false;
         }
-
-        //otherwise inserts element between previous and next
         else {
-            ListNode newNode = new ListNode(newData, conductor);
-            previous.setNext(newNode);
-            return true;
+            //if previous equals null, then the new element will be the first node
+            if (previous == null){
+                System.out.println("TK: prev = null");
+                firstNode  = new ListNode(newData, conductor);
+                return true;
+            }
+
+
+            //otherwise inserts element between previous and next
+            else {
+                ListNode newNode = new ListNode(newData, conductor);
+                System.out.println("TK: conductor = " + conductor.getData());
+                previous.setNext(newNode);
+                return true;
+            }
         }
 
     }
@@ -75,6 +78,7 @@ public abstract class OrderedList extends List {
             previous = conductor;
             conductor = conductor.getNext();
         }
+        System.out.println("TK: not found");
         return false;    
     }
 }
